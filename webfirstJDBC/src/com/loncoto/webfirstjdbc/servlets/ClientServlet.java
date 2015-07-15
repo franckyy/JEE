@@ -52,6 +52,16 @@ public class ClientServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String action = request.getParameter("action");
+		
+		switch(action){
+		case "editer":
+			int id = Integer.parseInt(request.getParameter("id"));
+			Client c = clientDAO.findById(id);
+			request.setAttribute("client", c);
+			getServletContext().getRequestDispatcher("/edit.jsp").forward(request, response);
+			break;
+		}
 	}
 
 }
