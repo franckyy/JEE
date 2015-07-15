@@ -1,0 +1,56 @@
+
+label{
+  white-space:nowrap;
+  color: yellow;
+}
+
+body {
+	background: red;
+	color: pink;
+	text-align: center;
+	border-style: solid;
+    border-color: red;
+    border-width: 5px;
+}
+
+#bord {
+	color: orange;
+}
+
+td{
+	font-weight: bolder;
+}
+
+table{
+/* 	background: white;
+	border-width:10px; 
+	border-style:groove; 
+	border-color:black;
+	width:50%; */
+	
+	background: #cbcefb;
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#cbcefb", endColorstr="#0000ff"); /* pour IE < 10 et seulement le mode gradient linear*/
+	background: -moz-radial-gradient(#cbcefb, #0000ff);
+	background: -webkit-gradient(radial,center center,0,center center,100,from(#cbcefb),to(#0000ff));
+	background: -webkit-linear-gradient(#cbcefb, #0000ff);
+	background: -o-radial-gradient(#cbcefb, #0000ff);
+	background: -ms-radial-gradient(#cbcefb, #0000ff);
+	background: radial-gradient(#cbcefb, #0000ff);
+	
+	-moz-box-shadow: 10px 10px 5px 0px #cfcfcf;
+	-webkit-box-shadow: 10px 10px 5px 0px #cfcfcf;
+	-o-box-shadow: 10px 10px 5px 0px #cfcfcf;
+	box-shadow: 10px 10px 5px 0px #cfcfcf;
+	filter:progid:DXImageTransform.Microsoft.Shadow(color=#cfcfcf, Direction=134, Strength=5);
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+	border-radius: 10px;
+}
+
+td.cellule {
+	background: blue;
+}
+
+h2#titrepage{
+	text-decoration: underline;
+}
