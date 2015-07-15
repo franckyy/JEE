@@ -21,7 +21,6 @@ public class DataBaseManager implements ServletContextListener {
      * Default constructor. 
      */
     public DataBaseManager() {
-        // TODO Auto-generated constructor stub
     }
 
 	/**
@@ -33,7 +32,6 @@ public class DataBaseManager implements ServletContextListener {
 			
 			System.out.println("connexion close");
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
     }
@@ -59,6 +57,13 @@ public class DataBaseManager implements ServletContextListener {
 			base = DriverManager.getConnection(databaseURL, login, password);
 			
 			System.out.println("connecté à la base");
+			
+			//Création du clientDAO
+			ClientDAO clientDAO = new ClientDAO(base);
+			
+			//je met le clientDAO à disposition des servlets (c'est le serveur d'application qui initialise le contexte
+			// donc le clientDAO est visible par les servlets et les jsp mais pas par les beans)
+			evt.getServletContext().setAttribute("clientDAO", clientDAO);
 			
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
