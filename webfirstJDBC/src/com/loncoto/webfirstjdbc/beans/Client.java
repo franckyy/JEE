@@ -2,6 +2,7 @@ package com.loncoto.webfirstjdbc.beans;
 
 public class Client {
 	//ATTRIBUTS
+	private int id;
 	private String nom;
 	private String email;
 	private double solde;
@@ -24,6 +25,12 @@ public class Client {
 	}
 	public void setSolde(double solde) {
 		this.solde = solde;
+	}
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
 	}
 	
 }
