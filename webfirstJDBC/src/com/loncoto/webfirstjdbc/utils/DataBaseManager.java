@@ -27,7 +27,10 @@ public class DataBaseManager implements ServletContextListener {
      * @see ServletContextListener#contextInitialized(ServletContextEvent)
      */
     public void contextInitialized(ServletContextEvent arg0)  { 
-         // TODO Auto-generated method stub
+         // méthode d'initialisation
+    	//On peut lui demander de se connecter à la base et de la charger
+    	System.out.println("démarrage de databasemanager");
+    	
     }
 	
 }
