@@ -7,6 +7,19 @@ public class Client {
 	private String email;
 	private double solde;
 	
+	//CONSTRUCTEURS
+	public Client(int id, String nom, String email, double solde) {
+		super();
+		setId(id);
+		setNom(nom);
+		setEmail(email);
+		setSolde(solde);		
+	}
+	
+	public Client() {
+		this(0, "", "", 0.0);
+	}
+	
 	//GETTERS & SETTERS
 	public String getNom() {
 		return nom;
