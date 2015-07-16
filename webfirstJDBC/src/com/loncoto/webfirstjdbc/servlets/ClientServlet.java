@@ -61,6 +61,27 @@ public class ClientServlet extends HttpServlet {
 			request.setAttribute("client", c);
 			getServletContext().getRequestDispatcher("/edit.jsp").forward(request, response);
 			break;
+		case "sauver":
+			Client clientSave = new Client(Integer.parseInt(request.getParameter("id"))
+									,request.getParameter("nom")
+									,request.getParameter("email")
+									,Double.parseDouble(request.getParameter("solde"))
+			);
+			clientDAO.save(clientSave);
+			//renvoie une redirection http pour afficher une liste rafraîchie
+			response.sendRedirect("ClientServlet");
+			break;
+		case "creer":
+			Client clientcreate = new Client(0, "noname", "noemail", 100.0);
+			request.setAttribute("client", clientcreate);
+			getServletContext().getRequestDispatcher("/edit.jsp").forward(request, response);
+		case "supprimer":
+			int clientId = Integer.parseInt(request.getParameter("id"));
+			
+			clientDAO.delete(clientId);
+			
+			response.sendRedirect("ClientServlet");
+			break;
 		}
 	}
 
