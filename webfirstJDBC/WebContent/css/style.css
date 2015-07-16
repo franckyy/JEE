@@ -6,6 +6,11 @@ body {
 	color: blue;
 }
 
+.CSSTableGenerator th {
+	background: green;
+	color: white;
+}
+
 .CSSTableGenerator {
 	margin:0px;padding:0px;
 	width:100%;
