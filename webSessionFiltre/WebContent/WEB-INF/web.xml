@@ -22,4 +22,22 @@
   <listener>
     <listener-class>com.loncoto.webSessionFiltre.utils.SessionListener</listener-class>
   </listener>
+  <filter>
+    <display-name>WebFiltre</display-name>
+    <filter-name>WebFiltre</filter-name>
+    <filter-class>com.loncoto.webSessionFiltre.utils.WebFiltre</filter-class>
+  </filter>
+  <filter-mapping>
+    <filter-name>WebFiltre</filter-name>
+    <url-pattern>/*</url-pattern>
+  </filter-mapping>
+    <filter>
+    <display-name>WebFiltre2</display-name>
+    <filter-name>WebFiltre2</filter-name>
+    <filter-class>com.loncoto.webSessionFiltre.utils.WebFiltre</filter-class>
+  </filter>
+  <filter-mapping>
+    <filter-name>WebFiltre2</filter-name>
+    <url-pattern>/IndexServlet</url-pattern>
+  </filter-mapping>
 </web-app>

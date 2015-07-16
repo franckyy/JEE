@@ -4,14 +4,18 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<%@ include file="inclusion.jspf" %>
 <title>test session</title>
 </head>
 <body>
+<jsp:include page="header.jsp">
+	<jsp:param value="bonjour" name="message"/>
+</jsp:include>
 <h2><%= session.getAttribute("compteur") %></h2>
 <h2>identifiant session :  <%= session.getId() %></h2>
 <form action="IndexServlet" method="post">
 	<input type="hidden" name="action" value="reinitialiser" />
-	<input type="submit" vamue="Réinitialiser la session" />
+	<input type="submit" value="Réinitialiser la session" />
 </form>
 </body>
 </html>

@@ -30,8 +30,7 @@ public class IndexServlet extends HttpServlet {
 		if(session.getAttribute("compteur") == null){
 			System.out.println("création du compteur dans la session");
 			compteur = 1;
-		}
-		else {
+		} else {
 			System.out.println("incrémentation du compteur dans la session par la servlet");
 			compteur = (int) session.getAttribute("compteur");
 			compteur++;
