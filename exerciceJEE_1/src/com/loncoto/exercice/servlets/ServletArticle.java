@@ -52,7 +52,21 @@ public class ServletArticle extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+		String action = request.getParameter("action");
+		
+		switch(action) {
+		case "editer":
+			int idArticle = Integer.parseInt(request.getParameter("id"));
+			Article article = dao.findById(idArticle);
+			
+			request.setAttribute("article", article);
+			getServletContext().getRequestDispatcher("/liste.jsp").forward(request, response);
+			break;
+		case "supprimer":
+			break;
+		case "creer":
+			break;
+		}
 	}
 
 }

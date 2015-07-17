@@ -35,13 +35,37 @@ public class DAOarticle {
 			updateStatement = base.prepareStatement(UPDATE_ONE_SQL);
 			insertStatement = base.prepareStatement(INSERT_ONE_SQL);
 			deleteStatement = base.prepareStatement(DELETE_ONE_SQL);
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		} catch (SQLException e) {e.printStackTrace();}
 	}
 	
 	//METHODES
+	public Article findById(int idArticle){
+		Article article = null;
+		ResultSet rs = null;
+		
+		try {
+			findByIdStatement.clearParameters();
+			findByIdStatement.setInt(1, idArticle);
+			findByIdStatement.executeQuery();
+			
+			if(rs.next()) {
+				article = new Article(rs.getInt("id"),
+										rs.getString("libelle"),
+										rs.getDouble("prix"),
+										rs.getDouble("poids")
+						);
+			}
+		} catch (SQLException e) {e.printStackTrace();}
+		finally {
+			try {
+				if(rs != null) {
+					rs.close();
+				}
+			} catch (SQLException e) {e.printStackTrace();}
+		}
+		return article;
+	}
+	
 	public List<Article> findAll() {
 		ArrayList<Article> articles = new ArrayList<Article>();
 		

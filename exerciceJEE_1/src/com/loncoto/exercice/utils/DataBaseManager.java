@@ -20,9 +20,7 @@ public class DataBaseManager implements ServletContextListener{
 		try {
 			base.close();
 			System.out.println("Fermeture de connexion");
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
+		} catch (SQLException e) {e.printStackTrace();}
 	}
 
 	@Override
