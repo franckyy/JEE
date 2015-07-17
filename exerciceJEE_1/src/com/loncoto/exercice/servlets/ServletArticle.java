@@ -41,7 +41,24 @@ public class ServletArticle extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		List<Article> articles = dao.findAll();
+		System.out.println("uri = " + request.getRequestURI());
+		String uri = request.getRequestURI();
+		String[] champs = uri.split("/");
+		
+		String order = champs[champs.length - 1];
+		
+		int choix = DAOarticle.ORDERED_BY_PRIX;
+		
+		switch(order) {
+		case "prix":
+			choix = DAOarticle.ORDERED_BY_PRIX;
+			break;
+		case "poids":
+			choix = DAOarticle.ORDERED_BY_POIDS;
+			break;
+		}
+		
+		List<Article> articles = dao.findAll(choix);
 		
 		request.setAttribute("articles", articles);
 		
@@ -56,11 +73,12 @@ public class ServletArticle extends HttpServlet {
 		
 		switch(action) {
 		case "editer":
+			System.out.println("ServletArticle : switch(editer) : id = " + request.getParameter("id"));
 			int idArticle = Integer.parseInt(request.getParameter("id"));
-			Article article = dao.findById(idArticle);
+			Article articleEdit = dao.findById(idArticle);
 			
-			request.setAttribute("article", article);
-			getServletContext().getRequestDispatcher("/liste.jsp").forward(request, response);
+			request.setAttribute("articleEdit", articleEdit);
+			getServletContext().getRequestDispatcher("/edit.jsp").forward(request, response);
 			break;
 		case "supprimer":
 			break;

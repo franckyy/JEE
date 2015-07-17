@@ -25,7 +25,10 @@ public class DataBaseManager implements ServletContextListener{
 
 	@Override
 	public void contextInitialized(ServletContextEvent evt) {
-    	System.out.println("démarrage de databasemanager");
+    	System.out.println("initialisation de baseurl");
+    	String baseurl = "http://locahost:8080/exerciceJEE_1";
+		
+		System.out.println("démarrage de databasemanager");
     	
     	String driverClass = evt.getServletContext().getInitParameter("driverClass");
     	String dataBaseURL = evt.getServletContext().getInitParameter("dataBaseURL");

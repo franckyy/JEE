@@ -30,16 +30,6 @@
   </listener>
   <servlet>
     <description></description>
-    <display-name>ArticleServlet</display-name>
-    <servlet-name>ArticleServlet</servlet-name>
-    <servlet-class>com.loncoto.exercice.servlets.ArticleServlet</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>ArticleServlet</servlet-name>
-    <url-pattern>/ArticleServlet</url-pattern>
-  </servlet-mapping>
-  <servlet>
-    <description></description>
     <display-name>ServletArticle</display-name>
     <servlet-name>ServletArticle</servlet-name>
     <servlet-class>com.loncoto.exercice.servlets.ServletArticle</servlet-class>
@@ -47,5 +37,6 @@
   <servlet-mapping>
     <servlet-name>ServletArticle</servlet-name>
     <url-pattern>/ServletArticle</url-pattern>
+    <url-pattern>/ServletArticle/*</url-pattern>
   </servlet-mapping>
 </web-app>
